@@ -4,6 +4,13 @@ public class BombaDeCombustivel {
 	private double valorLitro;
 	private double totalPagar;
 	private double totalLitros;
+	
+	
+	public BombaDeCombustivel(String nome, double valorLitro) {
+		this.nome = nome;
+		this.valorLitro = valorLitro;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
