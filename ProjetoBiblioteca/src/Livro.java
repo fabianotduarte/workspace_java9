@@ -7,6 +7,27 @@ public class Livro {
 	private int     posE;
 	private int     posP;
 	private boolean disponivel;
+	
+	public Livro(String titulo, String autor, int ano, String cat, int posE, int posP) {
+		this.titulo        = titulo;
+		this.autor         = autor;
+		this.anoPublicacao = ano;
+		this.categoria     = cat;
+		this.posE          = posE;
+		this.posP          = posP;
+		this.disponivel    = true;
+	}
+	public Livro(String titulo, String autor) {
+		this.titulo = titulo;
+		this.autor = autor;
+//		this.anoPublicacao = 2020;
+//		this.categoria = "Sem Categoria";
+//		this.posE = 0;
+//		this.posP = 0;
+//		this.disponivel = false;
+	}
+	
+	
 	public String getTitulo() {
 		return titulo;
 	}
