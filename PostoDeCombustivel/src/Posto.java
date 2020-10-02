@@ -25,7 +25,7 @@ public class Posto {
 		// A pergunta é: eu preciso ter uma LISTA de bombas de combustível. Como faz?
 		// quero montar uma lista de 4 combustíveis
 		BombaDeCombustivel lista[];
-		lista = new BombaDeCombustivel[4]; // aqui funciona como se eu tivesse 4 variáveis
+		lista = new BombaDeCombustivel[5]; // aqui funciona como se eu tivesse 4 variáveis
 		
 		// que eu preciso fazer agora? criar cada objeto
 		
@@ -34,6 +34,7 @@ public class Posto {
 		lista[1] = new BombaDeCombustivel("Gasolina Aditivada", 4.499);
 		lista[2] = new BombaDeCombustivel("Etanol", 2.599);
 		lista[3] = new BombaDeCombustivel("Diesel", 3.499);
+		lista[4] = new BombaDeCombustivel("Diesel S10", 3.999);
 		Scanner teclado = new Scanner(System.in);
 		int opcao;
 		int numBomba;
@@ -41,12 +42,38 @@ public class Posto {
 		
 		do {
 			System.out.println("Escolha o combustivel:");
-			System.out.println("0 - "+lista[0].getNome());
-			System.out.println("1 - "+lista[1].getNome());
-			System.out.println("2 - "+lista[2].getNome());
-			System.out.println("3 - "+lista[3].getNome());
+			for (int pos=0; pos < lista.length; pos++) {
+				System.out.println("   "+pos+" - "+lista[pos].getNome());
+			}
 			System.out.println("-1 para Encerrar");
 			numBomba = teclado.nextInt();
+			/* daqui pra frente */
+			if (numBomba < 0 || numBomba >= lista.length) {
+				System.out.println("Bomba não selecionada");
+			}
+			else {
+				System.out.println("Voce selecionou a bomba "+numBomba);
+				
+				System.out.println("Quer abastecer por (1) Litros ou (2) valor total?");
+				opcao = teclado.nextInt();
+			    if (opcao == 1) {
+			    	System.out.println("Digite a quantidade de litros");
+			    	valor = teclado.nextDouble();
+			    	lista[numBomba].abastecerPorLitros(valor);
+			    	lista[numBomba].exibirRecibo();
+			    }
+			    else if (opcao == 2) {
+			    	System.out.println("Digite o valor a pagar");
+			    	valor = teclado.nextDouble();
+			    	lista[numBomba].abastecerPorValor(valor);
+			    	lista[numBomba].exibirRecibo();
+			    }
+			    else {
+			    	System.out.println("ERRO - Opcao Invalida");
+			    }
+			}
+			/* até aqui */
+			
 		} while (numBomba != -1);
 		System.out.println("----  Volte sempre!!!");
 	}
