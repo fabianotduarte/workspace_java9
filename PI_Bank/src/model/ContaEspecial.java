@@ -9,7 +9,8 @@ public class ContaEspecial extends Conta {
 		this.limite = limite;
 	}
 	
-	
+	// aqui, como eu redefino a lógica da operação "DEBITAR" na classe ContaEspecial, eu digo que estou
+	// fazendo uma SOBRESCRITA de método
 	public boolean debitar(float valor) {
 		if (super.saldo + this.limite >= valor) {
 			super.saldo = super.saldo - valor;
