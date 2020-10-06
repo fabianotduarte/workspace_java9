@@ -10,6 +10,9 @@ public class CartaoCashBack extends CartaoPrePago{
 	}
 
 	public boolean comprar(double valor) {
+		if (valor < 0) {
+			throw new CartaoException("Valor de compra inválido!");
+		}
 		if (super.saldo >= valor) {
 			super.saldo -= valor;
 			switch(tipo) {

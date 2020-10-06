@@ -8,16 +8,22 @@ public class Produto {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	
+	/*
+	 * formalmente uma exceção não-verificada não precisa da declaração de lançamento no cabeçalho do método
+	 * já nas exceções VERIFICADAS, a cláusula THROWS é obrigatória no cabeçalho do método
+	 */
+	public void setId(int id) throws IsiException {
 		if (id <= 0) {
 			throw new IsiException("ID de produto não pode ser zero ou negativo!");
 		}
 		this.id = id;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	public void setNome(String nome) throws IsiException {
 		if (nome == null || nome.length() == 0) {
 			throw new IsiException("Nome do produto não pode estar vazio!");
 		}
@@ -26,7 +32,7 @@ public class Produto {
 	public float getPreco() {
 		return preco;
 	}
-	public void setPreco(float preco) {
+	public void setPreco(float preco) throws IsiException {
 		if (preco < 0) {
 			throw new IsiException("Preço nao pode ser negativo!");
 		}

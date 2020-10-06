@@ -17,10 +17,16 @@ public class CartaoPrePago {
 	}
 	
 	public void adicionarCredito(double valor) {
+		if (valor < 0) {
+			throw new CartaoException("Valor a ser creditado tem que ser maior que zero!");
+		}
 		this.saldo += valor; // this.saldo = this.saldo + valor;
 	}
 	
 	public boolean comprar(double valor) {
+		if (valor < 0) {
+			throw new CartaoException("Valor de compra inválido!");
+		}
 		if (saldo >= valor) {
 			this.saldo -= valor;
 			return true;
