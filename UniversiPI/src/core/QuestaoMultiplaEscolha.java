@@ -54,8 +54,5 @@ public class QuestaoMultiplaEscolha extends QuestaoSimples {
 	public void setAlt4(String alt4) {
 		this.alt4 = alt4;
 	}
-	
-	
-	
 
 }
